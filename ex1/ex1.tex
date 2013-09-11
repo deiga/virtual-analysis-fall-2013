@@ -1,0 +1,146 @@
+\documentclass[12pt,a4paper,final]{article}
+
+% Use utf-8 encoding for foreign characters
+\usepackage[utf8]{inputenc}
+\usepackage[greek, finnish]{babel}
+\usepackage[T1]{fontenc}
+
+% Setup for fullpage use
+\usepackage{fullpage}
+
+% Uncomment some of the following if you use the features
+%
+% Running Headers and footers
+%\usepackage{fancyhdr}
+
+% Multipart figures
+%\usepackage{subfigure}
+
+% More symbols
+\usepackage[fleqn]{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{mathtools}
+
+% Surround parts of graphics with box
+\usepackage{boxedminipage}
+
+% Package for including code in the document
+\usepackage{listings}
+
+% Own definitions
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage[pdftex,colorlinks]{hyperref}
+\usepackage[all]{xy}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}
+\newtheorem{thm}{Lause}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{ex}{Tehtävä}
+% \newtheorem{maar}[thm]{Määritelmä}
+% \newtheorem{esim}[thm]{Esimerkki}
+
+% \theoremstyle{remark}
+% \newtheorem*{huom}{Huomautus}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+% \newcommand{\P}{\mathbb{P}}
+
+\swapnumbers
+
+% This is now the recommended way for checking for PDFLaTeX:
+\usepackage{ifpdf}
+
+%\newif\ifpdf
+%\ifx\pdfoutput\undefined
+%\pdffalse % we are not running PDFLaTeX
+%\else
+%\pdfoutput=1 % we are running PDFLaTeX
+%\pdftrue
+%\fi
+
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+
+\usepackage[normalem]{ulem}
+\usepackage{enumerate}
+
+\usepackage{titlesec}
+% \titleformat{\section}{\normalfont\Large\bfseries}{\S\thesection}{1em}{}
+\titleformat{\section}
+  {\normalfont\Large\sffamily\bfseries}{\uline{\S\thesection\hspace*{ 1em}}}{0em}{\uline}
+\setcounter{section}{-1}
+
+\title{Harjoitus 1}
+\author{APKI S13}
+
+\date{\today}
+
+\begin{document}
+
+\ifpdf
+\DeclareGraphicsExtensions{.pdf, .jpg, .tif}
+\else
+\DeclareGraphicsExtensions{.eps, .jpg}
+\fi
+
+\maketitle
+
+\begin{ex}
+  Hei,
+  Nimeni on Timo Sand, olen Tietojenkäsittelytieteen opiskelija. Minulla on noin sivuaineen verran (30op) matikan opintoja tehtynä ja tarvitsen toiset 30op vielä päälle maisterilinjaani varten.
+  Valitsin virtuaalisen kurssin koska työn kanssa luennoilla käyminen on haastavaa ja nauhoitetut luennot ovat osoittautuneet minulle toimivaksi konseptiksi.
+\end{ex}
+
+\begin{ex}
+  "Laskettava $n$ ensimmäistä positiivistä kokonaista lukua yhteen."
+  \begin{enumerate}[(a)]
+    \item Summakaava : $ \sum_{i=1}^n i$
+    \item Induktiotodistus:
+      \begin{align*}
+        n &= 1 \\
+        1 &= \frac{1^2}{2} + \frac{1}{2} \\
+        \\
+        n &= k \\
+        1 + 2 + .. + k &= \frac{k^2}{2} + \frac{k}{2} \\
+        \\
+        n &= k+1 \\
+        1 + 2 + .. + k + (k+1) &= \frac{(k+1)^2}{2} + \frac{k+1}{2} \\
+        \frac{k^2}{2} + \frac{k}{2} + (k+1) &= \frac{k^2 + 2k + 1}{2} + \frac{k}{2} + \frac{1}{2} \\
+        \frac{k^2}{2} + \frac{k}{2} + (k+1) &= \frac{k^2}{2} + \frac{2k}{2} + \frac{1}{2} + \frac{k}{2} + \frac{1}{2} \\
+         (k+1) &= \frac{2k}{2} + \frac{1}{2} + \frac{1}{2} \\
+         k + 1 &= k + 1\\
+      \end{align*}
+  \end{enumerate}
+\end{ex}
+
+\begin{ex}
+  \begin{enumerate}[(a)]
+    \item Summamerkintä: $ \sum_{i=1}^n 2^i$
+    \item Induktiotodistus:
+      \begin{align*}
+        n &= 1\\
+        2^1 &= 2^(1+1) - 2\\
+        \\
+        n &= k \\
+        2^1 + 2^2 + .. + 2^k &= 2^{k+1} - 2\\
+        \\
+        n &= k+1\\
+        2^1 + 2^2 + .. + 2^k + 2^{k+1} &= 2^{k+2} - 2\\
+        2^{k+1} - 2 + 2^{k+1} &= 2^{k+1} * 2 - 2\\
+        2^{k+1} * 2 - 2  &= 2^{k+1} * 2 - 2\\
+      \end{align*}
+  \end{enumerate}
+\end{ex}
+
+\end{document}
